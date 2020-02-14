@@ -124,6 +124,8 @@ nav {
 
 	border-left: 1px solid @lightgray;
 
+	padding: 20px;
+
 	width: 30%;
 	min-width: 400px;
 	height: 100%;
@@ -131,10 +133,50 @@ nav {
 	opacity: 0;
 	pointer-events: none;
 
-	&:hover {
+	&.open {
 
 		opacity: 1;
 		pointer-events: all;
+
+	}
+
+	&>.menu_closer {
+
+		position: absolute;
+
+		top: 10px;
+		right: 20px;
+
+		font-size: 40pt;
+		font-family: "Inter";
+
+		cursor: pointer;
+		user-select: none;
+
+	}
+
+	&>.title {
+
+		margin-bottom: 20px;
+
+		font-size: 27pt;
+		font-family: "Inter";
+		font-weight: 700;
+
+	}
+
+	&>.items {
+
+		&>* {
+
+			display: block;
+
+			margin-top: 20px;
+
+			font-size: 18pt;
+			font-family: "Inter";
+
+		}
 
 	}
 

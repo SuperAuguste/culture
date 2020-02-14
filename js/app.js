@@ -3,6 +3,15 @@ const pause = "❚❚";
 
 const tracked = new Set();
 
+[...document.querySelectorAll("h2[id]")].map(_ => {
+	
+	const anchor = document.createElement("a");
+	anchor.href = `#${_.id}`;
+	anchor.innerText = _.innerText;
+	document.querySelector("#toc>.items").appendChild(anchor);
+	
+});
+
 document.body.addEventListener("click", event => {
 
 	const target = event.target;
@@ -61,6 +70,14 @@ document.body.addEventListener("click", event => {
 		const t = target.parentElement;
 		t.parentElement.querySelector("audio").currentTime = t.parentElement.querySelector("audio").duration * event.offsetX / t.offsetWidth;
 		t.style.setProperty("--progress", `${event.offsetX / t.offsetWidth * 100}%`);
+
+	} else if (target.classList.contains("menu_opener")) {
+
+		document.getElementById("toc").classList.add("open");
+
+	} else if (target.classList.contains("menu_closer")) {
+
+		document.getElementById("toc").classList.remove("open");
 
 	}
 

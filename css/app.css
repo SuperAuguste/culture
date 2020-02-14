@@ -62,6 +62,7 @@ nav > .menu_opener:hover {
   top: 0;
   right: 0;
   border-left: 1px solid #dadada;
+  padding: 20px;
   width: 30%;
   min-width: 400px;
   height: 100%;
@@ -70,9 +71,30 @@ nav > .menu_opener:hover {
   transition: 0.2s all;
   background-color: #fafafa;
 }
-#toc:hover {
+#toc.open {
   opacity: 1;
   pointer-events: all;
+}
+#toc > .menu_closer {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 40pt;
+  font-family: "Inter";
+  cursor: pointer;
+  user-select: none;
+}
+#toc > .title {
+  margin-bottom: 20px;
+  font-size: 27pt;
+  font-family: "Inter";
+  font-weight: 700;
+}
+#toc > .items > * {
+  display: block;
+  margin-top: 20px;
+  font-size: 18pt;
+  font-family: "Inter";
 }
 @media only screen and (max-width: 600px) {
   #toc {
