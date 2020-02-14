@@ -22,7 +22,12 @@ document.body.addEventListener("click", event => {
 
 		const to = document.getElementById(target.href.split("#")[1]);
 
-		scrollTo(0, to.offsetTop - 81);
+		if (window.innerWidth < 600) {
+			
+			scrollTo(0, to.offsetTop - 10);
+			document.getElementById("toc").remove("open");
+
+		} else scrollTo(0, to.offsetTop - 81 - 10);
 
 		event.preventDefault();
 		return false;

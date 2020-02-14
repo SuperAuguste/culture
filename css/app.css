@@ -106,6 +106,10 @@ nav > .menu_opener:hover {
   #toc {
     border-left: none;
     width: 100%;
+    min-width: auto;
+  }
+  #toc > .title {
+    font-size: 24pt;
   }
 }
 main {
