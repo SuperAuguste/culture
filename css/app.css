@@ -2,13 +2,16 @@
 * {
   box-sizing: border-box;
 }
+*::selection {
+  color: white;
+  background-color: #181818;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 }
 nav {
   position: fixed;
@@ -27,10 +30,65 @@ nav > .title {
 nav > .title > span {
   color: #dadada;
 }
+nav > .menu_opener {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0px, -50%);
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  padding: 10px 20px;
+  color: #181818;
+  font-size: 15pt;
+  font-family: "Inter";
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s all;
+  user-select: none;
+}
+nav > .menu_opener:hover {
+  background-color: #fafafa;
+}
+@media only screen and (max-width: 600px) {
+  nav {
+    top: initial;
+    bottom: 0;
+    border-top: 1px solid #dadada;
+    border-bottom: none;
+  }
+}
+#toc {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-left: 1px solid #dadada;
+  width: 30%;
+  min-width: 400px;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s all;
+  background-color: #fafafa;
+}
+#toc:hover {
+  opacity: 1;
+  pointer-events: all;
+}
+@media only screen and (max-width: 600px) {
+  #toc {
+    border-left: none;
+    width: 100%;
+  }
+}
 main {
   margin-top: 80.33px;
   min-width: 100%;
   min-height: 100%;
+}
+@media only screen and (max-width: 600px) {
+  main {
+    margin-top: 0;
+  }
 }
 h2 {
   margin: 0;
@@ -57,6 +115,11 @@ footer {
   border-top: 1px solid #dadada;
   background-color: white;
 }
+@media only screen and (max-width: 600px) {
+  footer {
+    margin-bottom: 80.33px;
+  }
+}
 .timeline {
   display: flex;
   border-top: 1px solid #dadada;
@@ -64,6 +127,7 @@ footer {
   padding: 0px 40px;
   min-width: 100%;
   flex-wrap: wrap;
+  background-color: #fafafa;
 }
 .timeline > * {
   display: flex;
@@ -94,6 +158,7 @@ footer {
   border: 1px solid #dadada;
   border-radius: 5px;
   padding: 20px;
+  background-color: #fafafa;
 }
 .audio > .play {
   display: inline-block;
@@ -104,6 +169,7 @@ footer {
   text-align: center;
   font-family: "Inter";
   line-height: 50px;
+  background-color: white;
   cursor: pointer;
   user-select: none;
 }

@@ -5,9 +5,28 @@
 
 @lightgray: rgb(218, 218, 218);
 
+@ghost: lighten(@lightgray, 12.5%);
+
+.mobile (@body) {
+
+	@media only screen and (max-width: 600px) {
+	
+		@body();
+	
+	}
+
+}
+
 * {
 
 	box-sizing: border-box;
+
+	&::selection {
+
+		color: @light;
+		background-color: @dark;
+
+	}
 
 }
 
@@ -19,7 +38,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 
-	overflow-x: hidden;
+	// overflow-x: hidden;
 
 }
 
@@ -50,8 +69,85 @@ nav {
 
 	}
 
+	&>.menu_opener {
+
+		position: absolute;
+
+		top: 50%;
+		right: 20px;
+
+		transform: translate(0px, -50%);
+
+		border: 1px solid @lightgray;
+		border-radius: 3px;
+
+		padding: 10px 20px;
+
+		color: @dark;
+		font-size: 15pt;
+		font-family: "Inter";
+		font-weight: 700;
+
+		&:hover {
+
+			background-color: @ghost;
+
+		}
+		
+		cursor: pointer;
+		transition: 0.2s all;
+		user-select: none;
+
+	}
+
+	.mobile({
+
+		top: initial;
+		bottom: 0;
+
+		border-top: 1px solid @lightgray;
+		border-bottom: none;
+
+	});
+
 	// box-shadow: 0 0 2px @dark;
 	background-color: @light;
+
+}
+
+#toc {
+
+	position: fixed;
+
+	top: 0;
+	right: 0;
+
+	border-left: 1px solid @lightgray;
+
+	width: 30%;
+	min-width: 400px;
+	height: 100%;
+
+	opacity: 0;
+	pointer-events: none;
+
+	&:hover {
+
+		opacity: 1;
+		pointer-events: all;
+
+	}
+
+	.mobile({
+
+		border-left: none;
+
+		width: 100%;
+
+	});
+
+	transition: 0.2s all;
+	background-color: @ghost;
 
 }
 
@@ -61,6 +157,12 @@ main {
 
 	min-width: 100%;
 	min-height: 100%;
+
+	.mobile({
+
+		margin-top: 0;
+
+	});
 
 }
 
@@ -105,6 +207,12 @@ footer {
 
 	background-color: @light;
 
+	.mobile({
+
+		margin-bottom: 80.33px;
+
+	});
+
 }
 
 .timeline {
@@ -122,7 +230,7 @@ footer {
 	// flex-grow: 1;
 
 	// overflow: auto;
-	// background-color: @lightgray;
+	background-color: @ghost;
 
 	&>* {
 
@@ -180,6 +288,8 @@ footer {
 
 	padding: 20px;
 
+	background-color: @ghost;
+
 	&>.play {
 
 		display: inline-block;
@@ -193,6 +303,8 @@ footer {
 		text-align: center;
 		font-family: "Inter";
 		line-height: 50px;
+
+		background-color: @light;
 
 		cursor: pointer;
 		user-select: none;

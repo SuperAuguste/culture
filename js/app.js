@@ -9,7 +9,16 @@ document.body.addEventListener("click", event => {
 
 	if (!target) return;
 
-	if (target.classList.contains("play")) {
+	if (target.tagName === "A" && target.href && target.href.indexOf("#") !== -1) {
+
+		const to = document.getElementById(target.href.split("#")[1]);
+
+		scrollTo(0, to.offsetTop - 81);
+
+		event.preventDefault();
+		return false;
+
+	} else if (target.classList.contains("play")) {
 
 		if (!tracked.has(target)) {
 			
